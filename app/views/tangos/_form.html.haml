@@ -1,0 +1,26 @@
+= simple_form_for(@card) do |f|
+  = f.input :men,
+    label: "単語",    placeholder: "遺跡"
+
+  -# 単語の詳細から
+  = f.simple_fields_for @shousai do |shousai_form|
+    = shousai_form.input :card_id,
+      input_html: {value: @card.id}, as: :hidden
+    = shousai_form.input :kana,
+      label: "かな",    placeholder: "いせき"
+
+  -# 単語の統計から
+  = f.simple_fields_for @toukei do |toukei_form|
+    = toukei_form.input :card_id,
+      input_html: {value: @card.id}, as: :hidden
+
+  = f.input :kotae,
+    label: "答え",    placeholder: "昔の建物や歴史的事件などのあった場所「集落＿」"
+  = f.input :on,
+    label: "音",      placeholder: "集落遺跡"
+  = f.association :tags,
+    label: "タッグ",  placeholder: "歴史",
+    label_method: :namae, value_method: :id,
+    include_blank: false
+
+  = f.submit value: "単語を作ります"

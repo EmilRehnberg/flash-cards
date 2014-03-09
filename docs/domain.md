@@ -1,9 +1,10 @@
 
 # カード
 has many タッグ
-* 統計
 * 面
+* 答え
 * 音
+* 統計
 
 # 漢字 < カード
 has many 関係な漢字 :class => 漢字
@@ -26,9 +27,9 @@ belongs to many 単語
 # 統計
 belongs to 漢字
 belongs to 単語
-* 漢字
 * 最近の答え
 * 成功率
+* 試し
 
 # 課題
 has many タッグ
