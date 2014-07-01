@@ -7,7 +7,7 @@ has many タッグ
 * 統計
 
 # 漢字 < カード
-has many 関係な漢字 :class => 漢字
+has many 関係な漢字 :class => 漢字  
 has many 単語
 * 音読み
 * 訓読み
@@ -15,12 +15,12 @@ has many 単語
 * 部首
 
 # 単語 < カード
-has many 漢字
+has many 漢字  
 has many 関係な単語 :class => 単語
 * かな
 
 # タッグ
-belongs to many 漢字
+belongs to many 漢字  
 belongs to many 単語
 * 名前
 
@@ -31,7 +31,7 @@ belongs to カード
 * 試し
 
 # 課題
-has many タッグ
+has many タッグ  
 has one 設定
 * 名前
 
