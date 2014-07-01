@@ -7,14 +7,19 @@ class BenkyouController < ApplicationController
   end
 
   def submit
+
     card = Card.find(params[:id])
     toukei = card.toukei
-    tadashii? = params[:kaitou].eq?(card.kana)
+    tadashii_desu = params[:kaitou].eql?(card.kana)
+
     ActiveRecord::Base.transaction do
-      toukei.update_attribute(:saikin_no_kotae, toukei)
+      toukei.update_attribute(:saikin_no_kotae, tadashii_desu)
       toukei.increment(:tameshi)
-      toukei.increment(:tadashii) if tadashii?
+      toukei.increment(:tadashii) if tadashii_desu
+      toukei.save!
     end
+
+    redirect_to(new_benkyou_path)
   end
 end
 

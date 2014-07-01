@@ -1,0 +1,5 @@
+= form_tag(benkyou_teishutsu_path(1)) do
+  = text_field_tag(:kaitou, '', placeholder: '平仮名')
+  = hidden_field_tag(:id, @card.id)
+  = submit_tag('提出')
+
