@@ -25,8 +25,7 @@ belongs to many 単語
 * 名前
 
 # 統計
-belongs to 漢字
-belongs to 単語
+belongs to カード
 * 最近の答え
 * 成功率
 * 試し

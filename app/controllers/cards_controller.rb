@@ -7,7 +7,7 @@ class CardsController < ApplicationController
   end
 
   def index(class_name)
-    Object.const_get(class_name).all
+    @cards = Object.const_get(class_name).all
   end
 
   def edit

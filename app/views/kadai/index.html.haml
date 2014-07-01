@@ -1,0 +1,13 @@
+%h1= "課題達"
+= link_to "新課題を作ります", new_kadai_path
+%table
+  %thead
+    %th= "名前"
+  %tbody
+    - @kadaitachi.each do |kadai|
+      %tr
+        %td= kadai.namae
+        %td= link_to "表示", kadai
+        %td= link_to "編集", edit_kadai_path(kadai)
+        %td= link_to "削除", kadai, method: :delete
+

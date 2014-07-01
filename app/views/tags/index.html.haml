@@ -1,0 +1,12 @@
+%h1= "タッグ達"
+= link_to "新しいタッグを作ります", new_tag_path
+%table
+  %thead
+    %th= "名前"
+  %tbody
+    - @tags.each do |card_tag|
+      %tr
+        %td= card_tag.namae
+        %td= link_to "表示", card_tag
+        %td= link_to "編集", edit_tag_path(card_tag)
+        %td= link_to "削除", card_tag, method: :delete

@@ -1,0 +1,20 @@
+= simple_form_for @kadai, url: kadai_index_path, method: :post do |f|
+  = f.input :namae,
+    label: "名前", placeholder: "同じくらい"
+
+  = f.simple_fields_for @settei do |settei_form|
+    = settei_form.input :kadai_id,
+      input_html: {value: @kadai.id}, as: :hidden
+    = settei_form.input :reminder,
+      label: "reminder", as: :integer,
+      placeholder: "2"
+    = settei_form.input :on_wo_purei_suru,
+      label: "音をプレイする", as: :radio_buttons
+
+  = f.association :tags,
+    label: "タッグ",  placeholder: "歴史",
+    label_method: :namae, value_method: :id,
+    include_blank: false, include_hidden: false
+
+  = f.submit value: "課題を作ります"
+

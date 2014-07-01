@@ -1,0 +1,15 @@
+%h1= "単語達"
+= link_to "新単語を作ります", new_tango_path
+%table
+  %thead
+    %th= "面"
+    %th= "かな"
+  %tbody
+    - @cards.each do |tango|
+      %tr
+        %td= tango.men
+        %td= tango.kana
+        %td= link_to "表示", tango
+        %td= link_to "編集", edit_tango_path(tango)
+        %td= link_to "削除", tango, method: :delete
+

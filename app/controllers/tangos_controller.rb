@@ -10,6 +10,7 @@ class TangosController < CardsController
 
   def create
     if @card = Tango.create(tango_params)
+      @card.tags << Tag.find(tango_params.fetch(:tag_ids).reject!(&:blank?))
       @card.create_shousai(shousai_params)
       @card.create_toukei()
     end
@@ -19,7 +20,7 @@ class TangosController < CardsController
   private
 
   def tango_params
-    params.require(:tango).permit(:men, :kotae, :on, :tags)
+    params.require(:tango).permit(:men, :kotae, :on, :tag_ids => [])
   end
 
   def shousai_params

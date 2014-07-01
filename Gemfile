@@ -1,24 +1,17 @@
 source 'https://rubygems.org'
-ruby '2.1.1'
-gem 'rails', '4.0.1'
+ruby '2.1.2'
+gem 'rails', '4.1.0'
 gem 'sqlite3'
 gem 'haml'
 gem 'haml-rails'
 gem 'simple_form'
 gem 'jquery-rails'
 gem 'turbolinks'
+gem 'therubyracer',  platforms: :ruby
 
 group :test, :development do
   gem 'rspec-rails'
   gem 'pry-rails'
-  gem 'pry-debugger'
+  gem 'pry-byebug'
 end
-
-# gem 'sass-rails', '~> 4.0.0'
-# gem 'uglifier', '>= 1.3.0'
-# gem 'coffee-rails', '~> 4.0.0'
-# gem 'jbuilder', '~> 1.2'
-# group :test do
-#   gem "minitest"
-# end
 

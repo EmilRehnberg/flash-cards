@@ -21,6 +21,6 @@
   = f.association :tags,
     label: "タッグ",  placeholder: "歴史",
     label_method: :namae, value_method: :id,
-    include_blank: false
+    include_blank: false, include_hidden: false
 
   = f.submit value: "単語を作ります"

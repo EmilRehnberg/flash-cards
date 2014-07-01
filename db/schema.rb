@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140308152945) do
+ActiveRecord::Schema.define(version: 20140311194441) do
 
   create_table "cards", force: true do |t|
     t.string   "men",        null: false
@@ -22,11 +22,27 @@ ActiveRecord::Schema.define(version: 20140308152945) do
     t.datetime "updated_at"
   end
 
+  create_table "cards_tags", id: false, force: true do |t|
+    t.integer "card_id"
+    t.integer "tag_id"
+  end
+
+  add_index "cards_tags", ["card_id", "tag_id"], name: "index_cards_tags_on_card_id_and_tag_id"
+  add_index "cards_tags", ["tag_id"], name: "index_cards_tags_on_tag_id"
+
   create_table "kadais", force: true do |t|
     t.string   "namae",      null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "kadais_tags", id: false, force: true do |t|
+    t.integer "kadai_id"
+    t.integer "tag_id"
+  end
+
+  add_index "kadais_tags", ["kadai_id", "tag_id"], name: "index_kadais_tags_on_kadai_id_and_tag_id"
+  add_index "kadais_tags", ["tag_id"], name: "index_kadais_tags_on_tag_id"
 
   create_table "kanji_shousais", force: true do |t|
     t.integer  "card_id"
