@@ -10,9 +10,12 @@ class TangosController < CardsController
 
   def create
     if @card = Tango.create(tango_params)
-      @card.tags << Tag.find(tango_params.fetch(:tag_ids).reject!(&:blank?))
-      @card.create_shousai(shousai_params)
-      @card.create_toukei()
+      ActiveRecord::Base.transaction do
+        @card.save!
+        @card.tags << Tag.find(tango_params.fetch(:tag_ids))
+        @card.create_shousai(shousai_params)
+        @card.create_toukei()
+      end
     end
     redirect_to :back
   end

@@ -8,6 +8,7 @@ gem 'simple_form'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'therubyracer',  platforms: :ruby
+gem 'foundation-rails'
 
 group :test, :development do
   gem 'rspec-rails'

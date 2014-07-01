@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140311194441) do
+ActiveRecord::Schema.define(version: 20140701104208) do
 
   create_table "cards", force: true do |t|
     t.string   "men",        null: false
@@ -82,12 +82,12 @@ ActiveRecord::Schema.define(version: 20140311194441) do
   add_index "tango_shousais", ["card_id"], name: "index_tango_shousais_on_card_id"
 
   create_table "toukeis", force: true do |t|
-    t.integer  "card_id",                       null: false
-    t.integer  "saikin_no_kotae", default: 1,   null: false
-    t.decimal  "seikouritsu",     default: 0.0, null: false
-    t.integer  "tameshi",         default: 0,   null: false
+    t.integer  "card_id",                     null: false
+    t.integer  "saikin_no_kotae", default: 1, null: false
+    t.integer  "tameshi",         default: 0, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "tadashii",        default: 0, null: false
   end
 
   add_index "toukeis", ["card_id"], name: "index_toukeis_on_card_id"
